@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crocodile Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .fact {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .fact.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crocodile Facts</h1>
+        <button id="factButton">Show Random Fact</button>
+        <p id="factDisplay" class="fact"></p>
+    </div>
+    <script>
+        const facts = [
+            { "fact": "Crocodiles are large aquatic reptiles found in tropical regions of Africa, Asia, the Americas, and Australia." },
+            { "fact": "They have a powerful bite, with some species having the strongest bite force of any animal." },
+            { "fact": "Crocodiles are carnivorous and primarily feed on fish, birds, mammals, and occasionally smaller crocodiles." },
+            { "fact": "They have a lifespan of 35 to 75 years, depending on the species." },
+            { "fact": "Crocodiles are excellent swimmers and can hold their breath underwater for up to an hour." },
+            { "fact": "They have a unique heart structure with four chambers, similar to birds and mammals, which allows efficient oxygenation of blood." },
+            { "fact": "Crocodiles communicate through vocalizations, including growls, hisses, and roars, especially during mating season." },
+            { "fact": "They have a special transparent eyelid called a nictitating membrane that protects their eyes underwater." },
+            { "fact": "Crocodiles are known for their ambush hunting technique, where they lie in wait for prey to come close before attacking." },
+            { "fact": "The largest species, the saltwater crocodile, can grow up to 23 feet in length and weigh over 2,200 pounds." }
+        ];
+
+        document.getElementById('factButton').addEventListener('click', () => {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.textContent = facts[randomIndex].fact;
+            factDisplay.classList.add('show');
+        });
+    </script>
+</body>
+</html>
